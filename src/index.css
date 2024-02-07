@@ -11,11 +11,24 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* Custom css property */
+  --btn-secundary: #006a0b;
+  --btn-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  --inputFontSize: 14pt;
+  --inputWidth: 30%;
+  --btn-width: 25%;
+
+  @media only screen and (min-width: 0px) and (max-width: 376px) {
+    --inputWidth: 100%;
+  }
+
+  @media only screen and (min-width: 377px) and (max-width: 576px) {
+    --inputWidth: 50%;
+    --btn-width: 50%;
+  }
 }
 
-h1 {
-  color: red;
-}
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
