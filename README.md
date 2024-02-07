@@ -22,4 +22,5 @@ Voor het bouwen van deze applicatie binnen dit project zijn de volgende technolo
 
 # Bijzonderheden:
 
-Tijdens het bouwen van dit project kunnen de namen van de bestanden en de mappen aangepast worden.
+- Tijdens het bouwen van dit project kunnen de namen van de bestanden en de mappen aangepast worden.
+- Bugs kunnen voorkomen en zullen gefixt worden.
