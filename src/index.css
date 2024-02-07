@@ -17,7 +17,7 @@
   --btn-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
   --inputFontSize: 14pt;
   --inputWidth: 30%;
-  --btn-width: 25%;
+  /* --btn-width: 25%; */
 
   @media only screen and (min-width: 0px) and (max-width: 376px) {
     --inputWidth: 100%;
