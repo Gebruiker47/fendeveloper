@@ -29,7 +29,7 @@ export class CustomButton extends LitElement {
       color: #fff;
       border: none;
       margin: 5px 0;
-      width: var(--btn-width, 25%);
+      width: var(--btn-width);
     }
 
     button:disabled {
@@ -50,7 +50,7 @@ export class CustomButton extends LitElement {
 
     @media only screen and (min-width: 377px) and (max-width: 576px) {
       button {
-        --btn-width: 50%;
+        --btn-width: 100%;
         margin: 0 auto;
         padding: 8px;
         overflow: hidden;
