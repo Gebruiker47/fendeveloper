@@ -48,11 +48,21 @@ export class MyRouterMenu extends LitElement {
   }
   render() {
     return html`
-      <ul id="nav" class="myTopNav">
-        <li><a href="/dashboard">My dashboard</a></li>
-        <li><a href="/add">Add crypto</a></li>
-        <li><a href="/userprofile/2">My Profile</a></li>
-      </ul>
+      <top-navbar-menu>
+        <ul id="nav" class="myTopNav">
+          <li><a href="/dashboard">My dashboard</a></li>
+          <li><a href="/add">Add crypto</a></li>
+          <li><a href="/userprofile/2">My Profile</a></li>
+        </ul>
+      </top-navbar-menu>
+
+      <footer-navbar-menu>
+        <ul id="nav" class="myTopNav">
+          <li><a href="/dashboard">My dashboard</a></li>
+          <li><a href="/add">Add crypto</a></li>
+          <li><a href="/userprofile/2">My Profile</a></li>
+        </ul>
+      </footer-navbar-menu>
     `;
   }
 }
