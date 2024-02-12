@@ -1,6 +1,10 @@
 import { LitElement, html, css } from "lit-element";
 
 export class MyRouterMenu extends LitElement {
+  constructor() {
+    super();
+    this.username = localStorage.getItem("name");
+  }
   static get styles() {
     return css`
       #nav {
@@ -9,7 +13,7 @@ export class MyRouterMenu extends LitElement {
         overflow: hidden;
         background-color: #333333;
         width: 100%;
-        justify-content: space-between;
+        overflow-x: scroll;
       }
 
       #nav li {
@@ -30,18 +34,17 @@ export class MyRouterMenu extends LitElement {
         border: none;
         margin: 10px;
         text-decoration: none;
+        white-space: nowrap;
       }
       @media only screen and (min-width: 0px) and (max-width: 860px) {
         #nav {
-          overflow-x: scroll;
-          padding: 10px;
+          overflow: hidden;
         }
         .myTopNav {
           display: flex;
         }
-
-        a {
-          padding: 10px 20px;
+        .menu-container {
+          overflow: hidden;
         }
       }
     `;
@@ -52,15 +55,22 @@ export class MyRouterMenu extends LitElement {
         <ul id="nav" class="myTopNav">
           <li><a href="/dashboard">My dashboard</a></li>
           <li><a href="/add">Add crypto</a></li>
-          <li><a href="/userprofile/2">My Profile</a></li>
+          <li><a href="/userprofile/${this.username}">My Profile</a></li>
         </ul>
       </top-navbar-menu>
 
       <footer-navbar-menu>
         <ul id="nav" class="myTopNav">
-          <li><a href="/dashboard">My dashboard</a></li>
-          <li><a href="/add">Add crypto</a></li>
-          <li><a href="/userprofile/2">My Profile</a></li>
+          <li><a href="/dashboard">Dashboard</a></li>
+          <li><a href="/add">Add Crypto </a></li>
+          <li><a href="/userprofile/${this.username}">Profile</a></li>
+          <li><a href="/userprofile/2">Profile2</a></li>
+          <li><a href="/userprofile/3">Profile3</a></li>
+          <li><a href="/userprofile/3">Profile4</a></li>
+          <li><a href="/userprofile/3">Profile5</a></li>
+          <li><a href="/userprofile/3">Profile6</a></li>
+          <li><a href="/userprofile/3">Profile7</a></li>
+          <li><a href="/userprofile/3">Profile8</a></li>
         </ul>
       </footer-navbar-menu>
     `;
