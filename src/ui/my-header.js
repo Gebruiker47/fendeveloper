@@ -17,18 +17,19 @@ export class MyHeader extends LitElement {
       text-align: center;
     }
 
-    div {
+    #headerContainer {
       background: #8bc34ab0;
-      font-eight: bold;
-      padding: 20px;
+      padding: 5px;
       color: #333;
     }
   `;
 
   render() {
     return html`
-      <h1>${this.title}</h1>
-      <slot></slot>
+      <div id="headerContainer">
+        <h1>${this.title}</h1>
+        <slot></slot>
+      </div>
     `;
   }
 }

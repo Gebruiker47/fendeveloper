@@ -21,29 +21,17 @@ export class MyChart extends LitElement {
     this.label = "Kies een label";
     this.myStoredUsers = JSON.parse(localStorage.getItem("storedUsers"));
     this.username = localStorage.getItem("name");
-
-    this.myStoredUsers.map((user) => {
-      if (user.name == this.username) {
-        this.myLabels = user.coins.map((coin) => {
-          return (coin.coin_name = coin.coin_name);
-        });
-      }
-    });
-
-    this.myStoredUsers.map((user) => {
-      if (user.name == this.username) {
-        this.myData = user.coins.map((coin) => {
-          return (coin.price = coin.price);
-        });
-      }
-    });
+    this.totalCoinResult;
+    this.getChartData();
+    this.getChartLabels();
   }
 
   connectedCallback() {
     super.connectedCallback();
     this.firstUpdated();
     this.getTotalCoin();
-
+    // this.getChartData();
+    // this.getChartLabels();
     this.myLabels.push("Total");
     this.myData.push(this.totalCoinResult);
   }
@@ -52,17 +40,36 @@ export class MyChart extends LitElement {
     super.disconnectedCallback();
     this.firstUpdated();
     this.getTotalCoin();
-
+    // this.getChartData();
+    // this.getChartLabels();
     this.myLabels.push("Total");
     this.myData.push(this.totalCoinResult);
   }
 
+  getChartData() {
+    this.myStoredUsers.map((user) => {
+      if (user.name == this.username) {
+        this.myData = user.coins.map((coin) => {
+          return (coin.price = coin.price);
+        });
+      }
+    });
+  }
+  getChartLabels() {
+    this.myStoredUsers.map((user) => {
+      if (user.name == this.username) {
+        this.myLabels = user.coins.map((coin) => {
+          return (coin.coin_name = coin.coin_name);
+        });
+      }
+    });
+  }
   getTotalCoin() {
     this.myStoredUsers.map((user) => {
       if (user.name == this.username) {
-        this.totalCoinResult = user.coins.reduce((total, item) => {
+        return (this.totalCoinResult = user.coins.reduce((total, item) => {
           return total + parseInt(item.price);
-        }, 0);
+        }, 0));
       }
     });
   }

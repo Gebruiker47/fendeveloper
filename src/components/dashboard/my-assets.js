@@ -6,6 +6,7 @@ export class MyAssets extends LitElement {
       myStoredUsers: { type: Array, reflect: true },
       username: { type: String, reflect: true },
       title: { type: String, reflect: true },
+      numberOfCrypto: { type: Number },
     };
   }
 
@@ -14,18 +15,38 @@ export class MyAssets extends LitElement {
     this.myStoredUsers = JSON.parse(localStorage.getItem("storedUsers"));
     this.username = localStorage.getItem("name");
     this.title = "your title";
+    this.numberOfCrypto = 0;
   }
 
   connectedCallback() {
     super.connectedCallback();
+    this.getTotalCrypto();
+  }
+
+  getTotalCrypto() {
+    this.myStoredUsers.map((user) => {
+      if (user.name == this.username) {
+        this.numberOfCrypto = user.coins.reduce((total, item) => {
+          return total + parseInt(item.price);
+        }, 0);
+      }
+    });
   }
 
   static get styles() {
     return css`
+      .assets-container {
+        box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px,
+          rgba(0, 0, 0, 0.24) 0px 1px 2px;
+        width: 62%;
+        float: right;
+        padding: 20px;
+        margin-top: 10px;
+      }
       table,
       th,
       td {
-        width: 50%;
+        width: 100%;
         padding: 2px;
         border-spacing: 5px;
       }
@@ -61,54 +82,62 @@ export class MyAssets extends LitElement {
         table {
           width: 95%;
         }
+        .assets-container {
+          width: 90%;
+          float: left;
+        }
       }
     `;
   }
 
   render() {
     return html`
-      <h1>${this.title}</h1>
-      <table>
-        <tr>
-          <th>Name</th>
-          <th>Price</th>
-          <th>Action</th>
-        </tr>
+      <div class="assets-container">
+        <h1>${this.title}</h1>
+        <p>Totale crypto coins : ${this.numberOfCrypto}</p>
+        <table>
+          <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Action</th>
+          </tr>
 
-        ${this.myStoredUsers.map((user) => {
-          if (user.name == this.username) {
-            return user.coins.map(
-              (coin) => html`
-                <tr>
-                  <td>${coin.coin_name}</td>
-                  <td>${coin.price}</td>
-                  <td>
-                    <my-modal title="${coin.coin_name}" label="Details">
-                      <custom-text-input
-                        input_type="number"
-                        value="${coin.price}"
-                        id="coinInput"
-                      >
-                      </custom-text-input>
+          ${this.myStoredUsers.map((user) => {
+            if (user.name == this.username) {
+              return user.coins.map(
+                (coin) => html`
+                  <tr>
+                    <td>${coin.coin_name}</td>
+                    <td>${coin.price}</td>
+                    <td>
+                      <my-modal title="${coin.coin_name}" label="Details">
+                        <custom-text-input
+                          input_type="number"
+                          value="${coin.price}"
+                          id="coinInput"
+                        >
+                        </custom-text-input>
 
-                      <custom-button
-                        label="Change"
-                        @custom-click="${this.updateItem}"
-                        id="${coin.id}"
-                        class="change-btn"
-                      >
-                      </custom-button>
-                      <p>
-                        totaal aantal ${coin.coin_name} crypto is ${coin.price}
-                      </p>
-                    </my-modal>
-                  </td>
-                </tr>
-              `
-            );
-          }
-        })}
-      </table>
+                        <custom-button
+                          label="Change"
+                          @custom-click="${this.updateItem}"
+                          id="${coin.id}"
+                          class="change-btn"
+                        >
+                        </custom-button>
+                        <p>
+                          totaal aantal ${coin.coin_name} crypto is
+                          ${coin.price}
+                        </p>
+                      </my-modal>
+                    </td>
+                  </tr>
+                `
+              );
+            }
+          })}
+        </table>
+      </div>
     `;
   }
 }

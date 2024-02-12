@@ -11,18 +11,16 @@ export class TopNavbarMenu extends LitElement {
         margin: 10px;
         background: #002a62;
         color: #fff;
-        display: var(--top-navbar-display);
+        display: var(--top-navbar-display, none);
       }
     }
   `;
 
   render() {
     return html`
-      <nav>
-        <div id="top-navbar">
-          <slot></slot>
-        </div>
-      </nav>
+      <div id="top-navbar">
+        <slot></slot>
+      </div>
     `;
   }
 }
