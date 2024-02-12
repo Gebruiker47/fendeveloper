@@ -7,6 +7,8 @@ export class MyRouterMenu extends LitElement {
   }
   static get styles() {
     return css`
+      :root {
+      }
       #nav {
         list-style-type: none;
         padding: 20px;
