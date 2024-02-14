@@ -13,7 +13,6 @@ export class MyRouterMenu extends LitElement {
         overflow: hidden;
         background-color: #333333;
         width: 100%;
-        overflow-x: scroll;
       }
 
       #nav li {
@@ -46,8 +45,21 @@ export class MyRouterMenu extends LitElement {
         .menu-container {
           overflow: hidden;
         }
+        #nav li:last-child {
+          margin-top: -10px;
+          float: right;
+        }
+      }
+
+      #nav li:last-child {
+        margin-top: -10px;
+        float: right;
       }
     `;
+  }
+
+  renderLogout() {
+    return html` <user-logout></user-logout> `;
   }
   render() {
     return html`
@@ -56,6 +68,7 @@ export class MyRouterMenu extends LitElement {
           <li><a href="/dashboard">My dashboard</a></li>
           <li><a href="/add">Add crypto</a></li>
           <li><a href="/userprofile/${this.username}">My Profile</a></li>
+          <li>${this.renderLogout()}</li>
         </ul>
       </top-navbar-menu>
 
@@ -64,13 +77,7 @@ export class MyRouterMenu extends LitElement {
           <li><a href="/dashboard">Dashboard</a></li>
           <li><a href="/add">Add Crypto </a></li>
           <li><a href="/userprofile/${this.username}">Profile</a></li>
-          <li><a href="/userprofile/2">Profile2</a></li>
-          <li><a href="/userprofile/3">Profile3</a></li>
-          <li><a href="/userprofile/3">Profile4</a></li>
-          <li><a href="/userprofile/3">Profile5</a></li>
-          <li><a href="/userprofile/3">Profile6</a></li>
-          <li><a href="/userprofile/3">Profile7</a></li>
-          <li><a href="/userprofile/3">Profile8</a></li>
+          <li>${this.renderLogout()}</li>
         </ul>
       </footer-navbar-menu>
     `;
