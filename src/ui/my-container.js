@@ -12,10 +12,8 @@ export class MyContainer extends LitElement {
   static get styles() {
     return css`
       div {
-        position: fixed;
-        top: 20%;
-        left: 35%;
-        width: auto;
+        margin: auto;
+        width: 50%;
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
         padding: 20px;
       }

@@ -8,4 +8,6 @@ router.setRoutes([
   { path: "/dashboard", component: "my-dashboard" },
   { path: "/add", component: "add-crypto" },
   { path: "/userprofile/:user", component: "user-profile" },
+  { path: "/", component: "user-logout" },
+  { path: "/registration", component: "user-registration" },
 ]);

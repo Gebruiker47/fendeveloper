@@ -11,6 +11,7 @@ import "../components/inputs/custom-button";
 import "../components/inputs/custom-text-input";
 
 import "../components/users/user-login";
+import "../components/users/user-logout";
 import "../components/users/user-profile";
 import "../components/users/user-registration";
 

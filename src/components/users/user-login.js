@@ -110,10 +110,10 @@ export class UserLogin extends LitElement {
       display: this.hidden ? "block" : "none",
     };
     return html`
+      <my-header title="Login page"></my-header>
       <my-container>
-        <h1>LOGIN</h1>
         <h4>Login with your username</h4>
-        <p>OR <a href="/registration">Register here</a></p>
+
         <custom-text-input
           id="userInput"
           placeholder="Username"
@@ -122,6 +122,7 @@ export class UserLogin extends LitElement {
           @custom-click=${this.login}
           label="Login"
         ></custom-button>
+        OR <a href="/registration">Register here</a>
         <span style=${styleMap(display)}>${this.label}</span>
       </my-container>
     `;
