@@ -1,4 +1,5 @@
 import { LitElement, html, css } from "lit";
+import { Router } from "@vaadin/router";
 
 export class MyDashboard extends LitElement {
   static get properties() {
@@ -28,8 +29,7 @@ export class MyDashboard extends LitElement {
 
   static get styles() {
     return css`
-      h1,
-      p {
+      .center {
         text-align: center;
       }
     `;
@@ -48,12 +48,21 @@ export class MyDashboard extends LitElement {
       : html``;
   }
 
+  redirectToAdd() {
+    Router.go("/add");
+  }
   renderMyAssets() {
     return this.coin_name.length
       ? html` <my-assets title="My Assets"></my-assets> `
       : html`
-          <h1>No data available</h1>
-          <p><a href="/addCoin">Add</a> your first crypto coin.</p>
+          <div class="center">
+            <h1>No data available</h1>
+            <custom-button
+              label="Add"
+              @custom-click="${this.redirectToAdd}"
+            ></custom-button>
+            your first crypto coin
+          </div>
         `;
   }
 
