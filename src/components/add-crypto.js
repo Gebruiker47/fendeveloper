@@ -14,7 +14,22 @@ export class AddCrypto extends LitElement {
     super();
     this.selectedCrypto = "";
   }
-  static styles = css``;
+  static styles = css`
+    .container {
+      margin: auto;
+      width: 50%;
+      --inputWidth: 100%;
+      --btn-secundary: #00256a;
+    }
+
+    .last-td-child {
+      vertical-align: bottom;
+    }
+
+    .btn-second {
+      background: white;
+    }
+  `;
 
   get _cryptoInput() {
     return this.renderRoot?.querySelector("#cryptoInput") ?? null;
@@ -31,9 +46,23 @@ export class AddCrypto extends LitElement {
       <custom-text-input
         input_type="number"
         id="cryptoInput"
-        placeholder="Enter crypto amount"
+        placeholder="Amount"
       >
       </custom-text-input>
+    `;
+  }
+
+  renderButton() {
+    return html`
+      <custom-button
+        label="Add"
+        @custom-click="${this.addCrypto}"
+      ></custom-button>
+
+      <custom-button
+        label="Cancel"
+        @custom-click="${this.cancel}"
+      ></custom-button>
     `;
   }
 
@@ -51,6 +80,9 @@ export class AddCrypto extends LitElement {
 
   // Functions
 
+  cancel() {
+    Router.go("/dashboard");
+  }
   changeMyCrypto(e) {
     this.selectedCrypto = e.detail;
   }
@@ -87,21 +119,27 @@ export class AddCrypto extends LitElement {
       }
     });
   }
-  renderButton() {
-    return html`
-      <custom-button
-        label="Add"
-        @custom-click="${this.addCrypto}"
-      ></custom-button>
-    `;
-  }
 
   render() {
     return html`
-      <my-header title="Add Your Crypto"></my-header>
       <my-router-menu></my-router-menu>
-      ${this.renderAddInput()} ${this.renderSelectOption()}
-      ${this.renderButton()}
+      <my-header title="Add Your Crypto"></my-header>
+      <div class="container">
+        <table>
+          <tr>
+            <td>Amount of crypto</td>
+            <td>${this.renderAddInput()}</td>
+          </tr>
+          <tr>
+            <td class="last-td-child">Choose your crypto</td>
+            <td>${this.renderSelectOption()}</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>${this.renderButton()}</td>
+          </tr>
+        </table>
+      </div>
     `;
   }
 }
