@@ -13,6 +13,7 @@ export class MyRouterMenu extends LitElement {
         overflow: hidden;
         background-color: #333333;
         width: 100%;
+        position: fixed;
       }
 
       #nav li {
@@ -38,6 +39,7 @@ export class MyRouterMenu extends LitElement {
       @media only screen and (min-width: 0px) and (max-width: 860px) {
         #nav {
           overflow: hidden;
+          bottom: 10px;
         }
         .myTopNav {
           display: flex;

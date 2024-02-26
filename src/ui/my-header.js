@@ -21,6 +21,7 @@ export class MyHeader extends LitElement {
       background: #8bc34ab0;
       padding: 5px;
       color: #333;
+      margin-top: 100px;
     }
   `;
 

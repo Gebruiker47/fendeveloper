@@ -90,8 +90,8 @@ export class UserProfile extends LitElement {
 
   render() {
     return html`
-      <my-header title="User profile : ${this.label}"></my-header>
       <my-router-menu></my-router-menu>
+      <my-header title="User profile : ${this.label}"></my-header>
       ${this.getUsers()} ${this.userDetail}
     `;
   }

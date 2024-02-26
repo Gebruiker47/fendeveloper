@@ -20,8 +20,13 @@ export class UserRegistration extends LitElement {
       display: block;
     }
 
-    h4 {
+    h1 {
       color: blue;
+      font-size: 14pt;
+    }
+
+    a {
+      text-decoration: none;
     }
   `;
 
@@ -105,7 +110,7 @@ export class UserRegistration extends LitElement {
 
       <my-container>
         ${this.error_message}
-        <h4>Register with your name and emailadres</h4>
+        <h1>Register with your name and emailadres</h1>
         ${this.renderInputs()} ${this.renderButtons()}
         <a href="/">Terug</a>
       </my-container>

@@ -25,9 +25,11 @@
   }
 
   @media only screen and (min-width: 377px) and (max-width: 576px) {
-    --inputWidth: 50%;
-    --btn-width: 50%;
-    --top-navbar-display: none;
+    :root {
+      --inputWidth: 50%;
+      --btn-width: 50%;
+      --top-navbar-display: none;
+    }
   }
 }
 

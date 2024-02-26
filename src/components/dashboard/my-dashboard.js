@@ -68,8 +68,8 @@ export class MyDashboard extends LitElement {
 
   render() {
     return html`
-      <my-header title="My Cryptodashboard"></my-header>
       <my-router-menu></my-router-menu>
+      <my-header title="My Cryptodashboard"></my-header>
       ${this.renderDashboard()} ${this.renderMyAssets()}
     `;
   }

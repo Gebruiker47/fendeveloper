@@ -67,6 +67,9 @@ export class UserLogin extends LitElement {
 
   static get styles() {
     return css`
+      a {
+        text-decoration: none;
+      }
       span {
         color: #333;
         background: tomato;
@@ -75,8 +78,9 @@ export class UserLogin extends LitElement {
         text-align: center;
         display: none;
       }
-      h4 {
+      h1 {
         color: blue;
+        font-size: 14pt;
       }
       input {
         padding: 6px 20px;
@@ -112,7 +116,7 @@ export class UserLogin extends LitElement {
     return html`
       <my-header title="Login page"></my-header>
       <my-container>
-        <h4>Login with your username</h4>
+        <h1>Login with your username</h1>
 
         <custom-text-input
           id="userInput"
@@ -122,7 +126,7 @@ export class UserLogin extends LitElement {
           @custom-click=${this.login}
           label="Login"
         ></custom-button>
-        OR <a href="/registration">Register here</a>
+        OR <a href="/registration">register here</a>
         <span style=${styleMap(display)}>${this.label}</span>
       </my-container>
     `;
