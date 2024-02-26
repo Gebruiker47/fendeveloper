@@ -22,6 +22,11 @@ export class MyModal extends LitElement {
   // De composition template kan gebruikt worden om de render functie overzichtelijk te houden,
   // zodat niet alle code in de render functie komt. Vervolgens kan de renderButton functie
   // binnen de render functie aangeroepen worden.
+
+  // De volgende renderButton() functie bevat een custom component. Dit kan voor dit project handig zijn,
+  // maar als deze custom component binnen een ander project gebruikt wordt, dan kan dit voor bugs zorgen,
+  // omdat er de kans bestaat dat de custom-button component binnen een nieuw project niet bestaat en hierdoor
+  // mis je een button die eigenlijk niet bestaat. De oplossing is een reguliere button toe te voegen.
   renderButton() {
     return html`
       <custom-button
@@ -32,6 +37,8 @@ export class MyModal extends LitElement {
     `;
   }
   static styles = css`
+    button {
+    }
     .modal {
       display: none;
       position: fixed;
