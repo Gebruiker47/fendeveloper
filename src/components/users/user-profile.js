@@ -67,7 +67,7 @@ export class UserProfile extends LitElement {
             ${user.coins.map(
               (item) =>
                 html`<ul>
-                  <li>${item.coin_name}</li>
+                  <li>${item.coinName}</li>
                 </ul>`
             )}</p>
             <p>
