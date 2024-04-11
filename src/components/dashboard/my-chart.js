@@ -59,7 +59,7 @@ export class MyChart extends LitElement {
     this.myStoredUsers.map((user) => {
       if (user.name == this.username) {
         this.myLabels = user.coins.map((coin) => {
-          return (coin.coin_name = coin.coin_name);
+          return (coin.coinName = coin.coinName);
         });
       }
     });

@@ -107,10 +107,10 @@ export class MyAssets extends LitElement {
               return user.coins.map(
                 (coin) => html`
                   <tr>
-                    <td>${coin.coin_name}</td>
+                    <td>${coin.coinName}</td>
                     <td>${coin.price}</td>
                     <td>
-                      <my-modal title="${coin.coin_name}" label="Details">
+                      <my-modal title="${coin.coinName}" label="Details">
                         <custom-text-input
                           input_type="number"
                           value="${coin.price}"
@@ -126,8 +126,7 @@ export class MyAssets extends LitElement {
                         >
                         </custom-button>
                         <p>
-                          totaal aantal ${coin.coin_name} crypto is
-                          ${coin.price}
+                          totaal aantal ${coin.coinName} crypto is ${coin.price}
                         </p>
                       </my-modal>
                     </td>
