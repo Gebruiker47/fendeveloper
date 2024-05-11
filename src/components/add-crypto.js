@@ -98,7 +98,7 @@ export class AddCrypto extends LitElement {
             resolve(
               user.coins.push({
                 id: Math.floor(Math.random() * 10000),
-                coin_name: this.selectedCrypto,
+                coinName: this.selectedCrypto,
                 price: this._cryptoInput.value,
               })
             );
