@@ -5,6 +5,7 @@ export class CustomButton extends LitElement {
     return {
       label: { type: String },
       disabled: { type: Boolean },
+      id: {},
     };
   }
 
@@ -61,7 +62,11 @@ export class CustomButton extends LitElement {
 
   render() {
     return html`
-      <button @click="${this._handleClick}" ?disabled="${this.disabled}">
+      <button
+        @click="${this._handleClick}"
+        ?disabled="${this.disabled}"
+        id="${this.id}"
+      >
         ${this.label}
       </button>
     `;
@@ -72,6 +77,7 @@ export class CustomButton extends LitElement {
     const event = new CustomEvent("custom-click", {
       detail: {
         label: this.label,
+        id: this.id,
         disabled: (this.disabled = !this.disabled),
         bubbles: true,
         composed: true,

@@ -8,6 +8,7 @@ export class MyModal extends LitElement {
       title: { type: String, reflect: true },
       content: { type: String, reflect: true },
       label: { type: String, reflect: true },
+      id: {},
     };
   }
 
@@ -16,6 +17,7 @@ export class MyModal extends LitElement {
     this.title = "Some title here";
     this.content = "Some content here";
     this.label = "";
+    this.id = 0;
   }
 
   // composition tamplate
@@ -32,7 +34,7 @@ export class MyModal extends LitElement {
       <custom-button
         label="${this.label}"
         @custom-click="${this.toggle}"
-        id="btn"
+        id="${this.id}"
       ></custom-button>
     `;
   }
@@ -84,7 +86,7 @@ export class MyModal extends LitElement {
     return html`
       ${this.renderButton()}
 
-      <div style="${styleMap(toggleModal)}" id="myModal" class="modal">
+      <div style="${styleMap(toggleModal)}" id="${this.id}" class="modal">
         <div class="modal-content">
           <span>
             <custom-button label="X" @custom-click="${this.toggle}">

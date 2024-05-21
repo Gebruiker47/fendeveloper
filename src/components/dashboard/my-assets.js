@@ -33,6 +33,52 @@ export class MyAssets extends LitElement {
     });
   }
 
+  get _coinInput() {
+    return this.renderRoot?.querySelector("#coinInput") ?? null;
+  }
+
+  updateItem(e) {
+    const id = e.target.id;
+
+    if (this._coinInput.value) {
+      this.myStoredUsers.map((user) => {
+        user.coins.map((item) => {
+          if (item.id == id) {
+            item.coinName = this._coinInput.value;
+            console.log(this._coinInput.value, "Updated ");
+          }
+          localStorage.setItem(
+            "storedUsers",
+            JSON.stringify(this.myStoredUsers)
+          );
+        });
+      });
+      this._coinInput.value = "";
+    }
+  }
+
+  // updateItem2(e) {
+  //   const id = e.target.id;
+
+  //   if (this._coinInput.value) {
+  //     this.myStoredUsers.map((user) => {
+  //       if (user.name == this.username) {
+  //         user.coins.map((coin) => {
+  //           if (coin.id == id) {
+  //             coin.coinName = this._coinInput.value;
+  //             console.log("UpdateItem function : ", this._coinInput.value);
+  //           }
+  //           localStorage.setItem(
+  //             "storedUsers",
+  //             JSON.stringify(this.myStoredUsers)
+  //           );
+  //         });
+  //       }
+  //       this._coinInput.value = "";
+  //     });
+  //   }
+  // }
+
   static get styles() {
     return css`
       .assets-container {
@@ -110,24 +156,24 @@ export class MyAssets extends LitElement {
                     <td>${coin.coinName}</td>
                     <td>${coin.price}</td>
                     <td>
-                      <my-modal title="${coin.coinName}" label="Details">
-                        <custom-text-input
-                          input_type="number"
-                          value="${coin.price}"
-                          id="coinInput"
-                        >
+                      <my-modal
+                        title="${coin.coinName}"
+                        label="Details"
+                        id="${coin.id}"
+                      >
+                        <custom-text-input input_type="text" id="coinInput">
                         </custom-text-input>
 
                         <custom-button
+                          id="${coin.id}"
                           label="Change"
                           @custom-click="${this.updateItem}"
-                          id="${coin.id}"
                           class="change-btn"
                         >
                         </custom-button>
-                        <p>
-                          totaal aantal ${coin.coinName} crypto is ${coin.price}
-                        </p>
+
+                        <p><b>Crypto name</b> : ${coin.coinName}</p>
+                        <p><b>Price</b> : ${coin.price}</p>
                       </my-modal>
                     </td>
                   </tr>
