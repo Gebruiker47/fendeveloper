@@ -88,6 +88,7 @@ export class MyAssets extends LitElement {
         float: right;
         padding: 20px;
         margin-top: 10px;
+        margin-bottom: 20px;
       }
       table,
       th,
@@ -131,6 +132,14 @@ export class MyAssets extends LitElement {
         .assets-container {
           width: 90%;
           float: left;
+          margin-bottom: 120px;
+        }
+      }
+
+      @media only screen and (min-width: 577px) and (max-width: 1200px) {
+        .assets-container {
+          width: 45%;
+          margin-bottom: 120px;
         }
       }
     `;
