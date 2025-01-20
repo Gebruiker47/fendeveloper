@@ -44,7 +44,7 @@ export class MyDashboard extends LitElement {
   }
   renderDashboard() {
     return this.coin_name.length
-      ? html` <my-chart chartType="bar"></my-chart> `
+      ? html` <my-chart chartType="pie"></my-chart> `
       : html``;
   }
 
