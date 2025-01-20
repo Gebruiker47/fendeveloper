@@ -4,7 +4,7 @@ Dit project is gemaakt als porfolio.
 
 # Casus
 
-Een applicatie om crypto currency te administreren. Een gebruiker kan verschillende soorten crypto currency toevoegen aan zijn persoonlijke overzicht en heeft een overzicht van de hoeveelheid crypto van de verschillende soorten in bezit zijn en de totale huidige waarde ervan.
+Een applicatie om crypto currency te administreren. Een gebruiker kan verschillende soorten crypto currency toevoegen aan zijn/haar persoonlijke overzicht en heeft een overzicht van de hoeveelheid crypto van de verschillende soorten die in bezit zijn van de gebruiker en de totale waarde ervan
 
 # Auteur
 
