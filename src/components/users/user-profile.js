@@ -63,17 +63,17 @@ export class UserProfile extends LitElement {
       this.userDetail = this.myStoredUsers.map((user) => {
         if (user.name == this.username) {
           return html`
-            <p>${user.name} heeft de volgende crypto coins :</p>
+            <p>${user.name} has the following crypto coins :</p>
             ${user.coins.map(
               (item) =>
                 html`<ul>
-                  <li>${item.coin_name}</li>
+                  <li>${item.coinName}</li>
                 </ul>`
             )}</p>
             <p>
-              Totale coin van :
+              Total coin of :
               ${user.coins.reduce((total, item) => {
-                return total + parseInt(item.price);
+                return total + parseInt(item.prijs);
               }, 0)}
             </p>
           `;

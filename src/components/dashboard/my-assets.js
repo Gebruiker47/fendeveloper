@@ -4,6 +4,9 @@ export class MyAssets extends LitElement {
   static get properties() {
     return {
       myStoredUsers: { type: Array, reflect: true },
+      //myNewUsers is nodig om de gewijzigde array in een
+      // nieuwe array te stoppen.
+      myNewUsers: { type: Array, reflect: true },
       username: { type: String, reflect: true },
       title: { type: String, reflect: true },
       numberOfCrypto: { type: Number },
@@ -16,6 +19,7 @@ export class MyAssets extends LitElement {
     this.username = localStorage.getItem("name");
     this.title = "your title";
     this.numberOfCrypto = 0;
+    this.myNewUsers = [];
   }
 
   connectedCallback() {
@@ -32,6 +36,29 @@ export class MyAssets extends LitElement {
       }
     });
   }
+
+  get _coinInput() {
+    return this.renderRoot?.querySelector("#coinInput") ?? null;
+  }
+
+  // Begin update Item
+
+  updateItem(e) {
+    const id = e.target.id;
+    if (this._coinInput.value) {
+      this.myStoredUsers.map((user) => {
+        this.myNewUsers = user.coins.find((coin) => {
+          if (coin.id == id) {
+            coin.prijs = parseInt(this._coinInput.value);
+          }
+        });
+        localStorage.setItem("storedUsers", JSON.stringify(this.myStoredUsers));
+      });
+      this._coinInput.value = "";
+    }
+  }
+
+  // Einde update item
 
   static get styles() {
     return css`
@@ -94,7 +121,7 @@ export class MyAssets extends LitElement {
     return html`
       <div class="assets-container">
         <h1>${this.title}</h1>
-        <p>Totale crypto coins : ${this.numberOfCrypto}</p>
+        <p>Total crypto coins : ${this.numberOfCrypto}</p>
         <table>
           <tr>
             <th>Name</th>
@@ -119,7 +146,7 @@ export class MyAssets extends LitElement {
                         </custom-text-input>
 
                         <custom-button
-                          label="Change"
+                          label="Update"
                           @custom-click="${this.updateItem}"
                           id="${coin.id}"
                           class="change-btn"
