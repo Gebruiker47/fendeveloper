@@ -56,6 +56,7 @@ export class MyRouterMenu extends LitElement {
       #nav li:last-child {
         margin-top: -10px;
         float: right;
+        margin-right: 40px;
       }
     `;
   }

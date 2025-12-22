@@ -32,8 +32,9 @@ export class MyChart extends LitElement {
     this.getTotalCoin();
     // this.getChartData();
     // this.getChartLabels();
-    this.myLabels.push("Total");
-    this.myData.push(this.totalCoinResult);
+    //De volgende twee push opdrachten zijn alleen voor de totale coins.
+    // this.myLabels.push("Total");
+    // this.myData.push(this.totalCoinResult);
   }
 
   disconnectedCallback() {

@@ -51,8 +51,8 @@ export class CustomButton extends LitElement {
     @media only screen and (min-width: 377px) and (max-width: 576px) {
       button {
         --btn-width: 100%;
-        margin: 0 auto;
-        padding: 8px;
+        // margin: 0 auto;
+        // padding: 8px;
         overflow: hidden;
         box-sizing: border-box;
       }
