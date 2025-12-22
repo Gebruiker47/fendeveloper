@@ -27,7 +27,7 @@ export class MyAssets extends LitElement {
     this.myStoredUsers.map((user) => {
       if (user.name == this.username) {
         this.numberOfCrypto = user.coins.reduce((total, item) => {
-          return total + parseInt(item.price);
+          return total + parseInt(item.prijs);
         }, 0);
       }
     });
@@ -107,13 +107,13 @@ export class MyAssets extends LitElement {
               return user.coins.map(
                 (coin) => html`
                   <tr>
-                    <td>${coin.coin_name}</td>
-                    <td>${coin.price}</td>
+                    <td>${coin.coinName}</td>
+                    <td>${coin.prijs}</td>
                     <td>
-                      <my-modal title="${coin.coin_name}" label="Details">
+                      <my-modal title="${coin.coinName}" label="Details">
                         <custom-text-input
                           input_type="number"
-                          value="${coin.price}"
+                          value="${coin.prijs}"
                           id="coinInput"
                         >
                         </custom-text-input>
@@ -126,8 +126,7 @@ export class MyAssets extends LitElement {
                         >
                         </custom-button>
                         <p>
-                          totaal aantal ${coin.coin_name} crypto is
-                          ${coin.price}
+                          totaal aantal ${coin.coinName} crypto is ${coin.prijs}
                         </p>
                       </my-modal>
                     </td>

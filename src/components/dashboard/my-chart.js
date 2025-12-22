@@ -50,7 +50,7 @@ export class MyChart extends LitElement {
     this.myStoredUsers.map((user) => {
       if (user.name == this.username) {
         this.myData = user.coins.map((coin) => {
-          return (coin.price = coin.price);
+          return (coin.prijs = coin.prijs);
         });
       }
     });
@@ -59,7 +59,7 @@ export class MyChart extends LitElement {
     this.myStoredUsers.map((user) => {
       if (user.name == this.username) {
         this.myLabels = user.coins.map((coin) => {
-          return (coin.coin_name = coin.coin_name);
+          return (coin.coinName = coin.coinName);
         });
       }
     });
@@ -68,7 +68,7 @@ export class MyChart extends LitElement {
     this.myStoredUsers.map((user) => {
       if (user.name == this.username) {
         return (this.totalCoinResult = user.coins.reduce((total, item) => {
-          return total + parseInt(item.price);
+          return total + parseInt(item.prijs);
         }, 0));
       }
     });
